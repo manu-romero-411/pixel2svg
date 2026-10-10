@@ -1,4 +1,4 @@
-# pixel2svg
+# pixelart2svg
 
 Convert pixel art (PNG) into a pixel-perfect vector SVG: **one `<path>` per colour**, integer coordinates only
 (1 SVG unit = 1 sprite pixel). The result is verified against the source image before the script finishes.
@@ -14,10 +14,10 @@ Python 3.8 or newer. No other dependencies, no network access needed.
 ## Usage
 
 ```
-python3 pixel2svg.py sprite.png                   # -> sprite.svg
-python3 pixel2svg.py sprite.png out.svg --scale 13
-python3 pixel2svg.py upscaled.png --cell 13       # PNG already enlarged in 13x13 blocks
-python3 pixel2svg.py sprite.png --disjoint        # shapes without overlaps
+python3 pixelart2svg.py sprite.png                   # -> sprite.svg
+python3 pixelart2svg.py sprite.png out.svg --scale 13
+python3 pixelart2svg.py upscaled.png --cell 13       # PNG already enlarged in 13x13 blocks
+python3 pixelart2svg.py sprite.png --disjoint        # shapes without overlaps
 ```
 
 | Option | Meaning |
