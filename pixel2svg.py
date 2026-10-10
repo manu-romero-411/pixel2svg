@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""pixelart2svg: turn pixel art (PNG) into a pixel-perfect vector SVG, one <path> per colour.
+"""pixel2svg: turn pixel art (PNG) into a pixel-perfect vector SVG, one <path> per colour.
 
 Usage:
-  python3 pixelart2svg.py sprite.png                  -> sprite.svg
-  python3 pixelart2svg.py sprite.png out.svg --scale 13
-  python3 pixelart2svg.py upscaled.png --cell 13      (PNG already enlarged in NxN blocks)
-  python3 pixelart2svg.py sprite.png --disjoint       (non-overlapping shapes, see below)
+  python3 pixel2svg.py sprite.png                  -> sprite.svg
+  python3 pixel2svg.py sprite.png out.svg --scale 13
+  python3 pixel2svg.py upscaled.png --cell 13      (PNG already enlarged in NxN blocks)
+  python3 pixel2svg.py sprite.png --disjoint       (non-overlapping shapes, see below)
 
 Options:
   --scale N     Output size = N px per sprite pixel (sets the SVG width/height; the viewBox stays in sprite
@@ -88,7 +88,7 @@ def to_svg(a, layers, scale, disjoint):
         body.append(f'    <path id="c-{hexc[1:]}{"" if al==255 else "-a%d"%al}" inkscape:label="{hexc}{"" if al==255 else " a=%d"%al}" fill="{hexc}"{op} fill-rule="evenodd" d="{d_of(loops)}" />')
     mode = "disjoint shapes" if disjoint else "underlay (each shape also covers the pixels of the shapes above it; no seams)"
     return (f'<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<svg {ns} width="{w*scale}" height="{h*scale}" viewBox="0 0 {w} {h}" version="1.1">\n'
-            f'  <!-- pixelart2svg: 1 unit = 1 pixel ({w}x{h}); one shape per colour, largest area first; mode: {mode} -->\n'
+            f'  <!-- pixel2svg: 1 unit = 1 pixel ({w}x{h}); one shape per colour, largest area first; mode: {mode} -->\n'
             f'  <g id="sprite" inkscape:label="sprite" inkscape:groupmode="layer">\n' + "\n".join(body) + "\n  </g>\n</svg>\n")
 
 def verify(a, layers):
