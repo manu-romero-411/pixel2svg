@@ -28,12 +28,14 @@ def trace(mask):
     h, w = mask.shape
     P = np.pad(mask, 1)
     nxt = collections.defaultdict(list)
+
     for y, x in zip(*np.nonzero(mask)):                      # directed edges, interior on the right
         if not P[y, x+1]:   nxt[(x, y)].append((x+1, y))
         if not P[y+1, x+2]: nxt[(x+1, y)].append((x+1, y+1))
         if not P[y+2, x+1]: nxt[(x+1, y+1)].append((x, y+1))
         if not P[y+1, x]:   nxt[(x, y+1)].append((x, y))
     loops = []
+
     while nxt:
         start = next(iter(nxt)); cur = start; path = [start]; prev = None
         while True:
@@ -105,6 +107,7 @@ def verify(a, layers):
 
 def main():
     ap = argparse.ArgumentParser()
+
     ap.add_argument("png"); ap.add_argument("svg", nargs="?")
     ap.add_argument("--scale", type=int, default=1); ap.add_argument("--cell", type=int, default=1)
     ap.add_argument("--disjoint", action="store_true"); ap.add_argument("--no-verify", action="store_true")
