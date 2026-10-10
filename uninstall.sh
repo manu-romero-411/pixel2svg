@@ -2,7 +2,7 @@
 set -e
 
 # Define the target executable path to remove
-TARGET_FILE="$HOME/.local/bin/pixel2svg"
+TARGET_FILE="$HOME/.local/bin/pixelart2svg"
 
 # Check if the executable exists before attempting to delete it
 if [ -f "$TARGET_FILE" ]; then

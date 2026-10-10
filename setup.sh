@@ -19,8 +19,8 @@ INSTALL_DIR="$HOME/.local/bin"
 mkdir -p "$INSTALL_DIR"
 
 # Define source and target file paths
-SOURCE_FILE="pixel2svg.py"
-TARGET_FILE="$INSTALL_DIR/pixel2svg"
+SOURCE_FILE="pixelart2svg.py"
+TARGET_FILE="$INSTALL_DIR/pixelart2svg"
 
 # Verify that the source script exists in the current directory before copying
 if [ ! -f "$SOURCE_FILE" ]; then
