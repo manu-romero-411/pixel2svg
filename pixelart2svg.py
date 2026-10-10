@@ -16,8 +16,6 @@ Options:
                 covers the pixels of the shapes painted on top of it, so there are no seams. Visually identical.
                 Sprites with semi-transparent pixels switch to --disjoint automatically.
   --no-verify   Skip the check of the SVG against the source PNG.
-
-Requirements: Python 3.8+, Pillow, numpy   (pip install -r requirements.txt)
 """
 import sys, argparse, collections
 import numpy as np
